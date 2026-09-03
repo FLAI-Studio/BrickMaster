@@ -11,7 +11,7 @@
 
 ## 编译
 1. 安装 Qt 6.x（勾选 MinGW 64-bit）
-2. 打开 `Bricker.pro`
+2. 打开 `BrickMaster.pro`
 3. 构建 → 运行
 
 ## 免责声明
