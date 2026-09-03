@@ -3,40 +3,45 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QVector>
+#include <QElapsedTimer>
 
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget* parent = nullptr);
     ~MainWindow();
 
 private slots:
     void onAgreeClicked();
-    void onConfirmClicked();
     void onDeclineClicked();
+    void onConfirmClicked();
     void onCountdownTick();
     void onOccupyTick();
 
 private:
-    // UI
-    class QLabel *titleLabel;
-    class QLabel *infoLabel;
-    class QLabel *warnLabel;
-    class QLabel *countdownLabel;
-    class QPushButton *agreeBtn;
-    class QPushButton *declineBtn;
-    class QPushButton *confirmBtn;
-    class QTextEdit *logView;
+    // ---- UI ----
+    class QLabel* titleLabel;
+    class QLabel* infoLabel;
+    class QLabel* warnLabel;
+    class QLabel* countdownLabel;
+    class QLabel* statsLabel;
+    class QPushButton* agreeBtn;
+    class QPushButton* declineBtn;
+    class QPushButton* confirmBtn;
+    class QTextEdit* logView;
 
-    // 数据
+    // ---- 数据 ----
     int countdownValue;
-    int coins;
+    qint64 totalMB;
     int runTicks;
+    QVector<char*> memBlocks;
+    QElapsedTimer elapsed;
 
-    QTimer *countdownTimer;
-    QTimer *occupyTimer;
+    // ---- 定时器 ----
+    QTimer* countdownTimer;
+    QTimer* occupyTimer;
 };
 
 #endif // MAINWINDOW_H
