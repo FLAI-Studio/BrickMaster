@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     totalMB = 0;
     runTicks = 0;
 
-    // ==================== 背景 ====================
+    // ==================== 全局暗黑背景 ====================
     QWidget* central = new QWidget(this);
     central->setStyleSheet(
         "QWidget { background-color: #0f0f0f; color: #e0e0e0; }"
@@ -75,7 +75,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     warnLabel->setStyleSheet(
         "font-size: 14px;"
         "line-height: 1.8;"
-        "color: #f0f0f0;"          
+        "color: #f0f0f0;"          // ← 近白色，暗底上清晰可读
         "background: transparent;"
         );
     warnLayout->addWidget(warnLabel);
@@ -206,8 +206,8 @@ void MainWindow::onConfirmClicked() {
     statsLabel->show();
 
     logView->append("==============================");
-    logView->append("  BrickMaster v1.0.0 启动");
-    logView->append("  模式：狂暴（50MB/次，无上限）");
+    logView->append("  BrickMaster v0.0.1 启动");
+    logView->append("  狂暴模式（50MB/次，无上限）");
     logView->append("==============================");
 
     elapsed.start();
